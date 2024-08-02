@@ -12,12 +12,12 @@ function GuessForm() {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <label htmlFor={"guess"}>Enter Guess</label>
+    <form onSubmit={onSubmit} className="guess-input-wrapper">
+      <label htmlFor={"guess-input"}>Enter Guess</label>
       <input
         required
-        id="guess"
-        name="guess"
+        id="guess-input"
+        name="guess-input"
         minLength={5}
         maxLength={5}
         pattern="[a-zA-Z]{5}"
