@@ -28,7 +28,7 @@ function Game() {
   return (
     <>
       Put a game here!
-      <PreviousGuesses guessList={guessList} />
+      <PreviousGuesses guessList={guessList} answer={answer} />
       <GuessForm addToGuessList={addToGuessList} />
     </>
   );
