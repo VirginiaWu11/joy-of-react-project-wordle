@@ -1,21 +1,23 @@
-//@ts-check
 import React from "react";
 import { range } from "../../utils";
 import { checkGuess } from "../../game-helpers";
 
+const Cell = ({ letter, status }) => {
+  const className = status ? `cell ${status}` : "cell";
+  return <span className={className}>{letter}</span>;
+};
+
 export default function GuessSlots({ guessText, answer }) {
   const guessCorrectnessArray = checkGuess(guessText, answer);
+
   return (
     <>
-      {range(5).map((_, i) => (
-        <span
+      {range(5).map((i) => (
+        <Cell
           key={i}
-          className={`cell ${
-            guessCorrectnessArray && guessCorrectnessArray[i].status
-          }`}
-        >
-          {guessCorrectnessArray ? guessCorrectnessArray[i].letter : ""}
-        </span>
+          letter={guessCorrectnessArray?.[i].letter}
+          status={guessCorrectnessArray?.[i].status}
+        />
       ))}
     </>
   );
