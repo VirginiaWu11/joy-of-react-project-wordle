@@ -1,13 +1,13 @@
+//@ts-check
 import React from "react";
+import { range } from "../../utils";
 
 export default function GuessSlots({ guessText }) {
-  const textArr =
-    guessText.length > 0 ? guessText.split("") : new Array(5).fill("");
   return (
     <>
-      {textArr.map((char, i) => (
+      {range(5).map((_, i) => (
         <span key={i} className="cell">
-          {char}
+          {guessText ? guessText[i] : ""}
         </span>
       ))}
     </>
