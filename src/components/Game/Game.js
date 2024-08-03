@@ -12,7 +12,7 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  const [guessList, setGuessList] = useState([{ id: "1", text: "hello" }]);
+  const [guessList, setGuessList] = useState([]);
   function addToGuessList(guessText) {
     if (guessList.length >= 6) {
       alert("maximum guesses reached");
