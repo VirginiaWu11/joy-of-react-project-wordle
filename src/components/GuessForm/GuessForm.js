@@ -1,12 +1,14 @@
+//@ts-check
 import React from "react";
 
-function GuessForm() {
+function GuessForm({ addToGuessList }) {
   const [guess, setGuess] = React.useState("");
   function onSubmit(e) {
     e.preventDefault();
     if (guess.length !== 5) {
       alert("must have 5 characters");
     }
+    addToGuessList(guess);
     console.log("guess:", guess);
     setGuess("");
   }
