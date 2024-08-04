@@ -26,7 +26,10 @@ function HappyBanner({ guessAmount, restartGame }) {
     <Banner status="happy">
       <p>
         <strong>Congratulations!</strong> Got it in{" "}
-        <strong>{guessAmount} guesses</strong>.
+        <strong>
+          {guessAmount === 1 ? "1 guess" : `${guessAmount} guesses`}
+        </strong>
+        .
       </p>
       <button onClick={restartGame}>Restart Game</button>
     </Banner>
