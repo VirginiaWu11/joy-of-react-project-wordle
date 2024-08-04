@@ -7,14 +7,8 @@ const Cell = ({ letter, status }) => {
   return <span className={className}>{letter}</span>;
 };
 
-export default function GuessSlots({ guessText, answer, setGameStatus }) {
+export default function GuessSlots({ guessText, answer }) {
   const guessCorrectnessArray = checkGuess(guessText, answer);
-
-  useEffect(() => {
-    if (guessCorrectnessArray?.every((el) => el.status === "correct")) {
-      setGameStatus("won");
-    }
-  }, [guessCorrectnessArray, setGameStatus]);
 
   return (
     <>

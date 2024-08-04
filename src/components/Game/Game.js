@@ -17,6 +17,9 @@ function Game() {
   const [guessList, setGuessList] = useState([]);
   const [gameStatus, setGameStatus] = useState("ongoing");
   function addToGuessList(guessText) {
+    if (guessText === answer) {
+      setGameStatus("won");
+    }
     if (guessList.length > NUM_OF_GUESSES_ALLOWED) {
       alert("max reached");
       return;

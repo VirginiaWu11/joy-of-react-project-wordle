@@ -8,11 +8,7 @@ function PreviousGuesses({ guessList, answer, setGameStatus }) {
     <div className="guess-results">
       {range(0, 6).map((_, i) => (
         <p className="guess" key={i}>
-          <GuessSlots
-            guessText={guessList[i]?.text ?? ""}
-            answer={answer}
-            setGameStatus={setGameStatus}
-          />
+          <GuessSlots guessText={guessList[i]?.text ?? ""} answer={answer} />
         </p>
       ))}
     </div>
