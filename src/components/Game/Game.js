@@ -6,7 +6,7 @@ import { WORDS } from "../../data";
 import GuessForm from "../GuessForm/GuessForm";
 import PreviousGuesses from "../PreviousGuesses/PreviousGuesses";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
-import Banner from "../Banner/Banner";
+import GameStatusBanner from "../GameStatusBanner/GameStatusBanner";
 
 // Pick a random word on every pageload.
 // const answer = sample(WORDS);
@@ -47,7 +47,7 @@ function Game() {
   return (
     <>
       Put a game here!
-      <Banner
+      <GameStatusBanner
         gameStatus={gameStatus}
         guessAmount={guessList.length}
         answer={answer}
