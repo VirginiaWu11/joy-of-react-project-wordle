@@ -1,7 +1,7 @@
 //@ts-check
 import React from "react";
 
-function GuessForm({ addToGuessList }) {
+function GuessForm({ addToGuessList, gameStatus }) {
   const [guess, setGuess] = React.useState("");
   function onSubmit(e) {
     e.preventDefault();
@@ -9,7 +9,6 @@ function GuessForm({ addToGuessList }) {
       alert("must have 5 characters");
     }
     addToGuessList(guess);
-    console.log("guess:", guess);
     setGuess("");
   }
 
@@ -18,6 +17,7 @@ function GuessForm({ addToGuessList }) {
       <label htmlFor={"guess-input"}>Enter Guess</label>
       <input
         required
+        disabled={gameStatus !== "ongoing"}
         id="guess-input"
         name="guess-input"
         minLength={5}

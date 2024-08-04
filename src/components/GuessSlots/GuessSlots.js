@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { range } from "../../utils";
 import { checkGuess } from "../../game-helpers";
 
@@ -7,8 +7,14 @@ const Cell = ({ letter, status }) => {
   return <span className={className}>{letter}</span>;
 };
 
-export default function GuessSlots({ guessText, answer }) {
+export default function GuessSlots({ guessText, answer, setGameStatus }) {
   const guessCorrectnessArray = checkGuess(guessText, answer);
+
+  useEffect(() => {
+    if (guessCorrectnessArray?.every((el) => el.status === "correct")) {
+      setGameStatus("won");
+    }
+  }, [guessCorrectnessArray, setGameStatus]);
 
   return (
     <>
