@@ -9,13 +9,21 @@ import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import Banner from "../Banner/Banner";
 
 // Pick a random word on every pageload.
-const answer = sample(WORDS);
+// const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
-console.info({ answer });
+// console.info({ answer });
 
 function Game() {
   const [guessList, setGuessList] = useState([]);
   const [gameStatus, setGameStatus] = useState("ongoing");
+  const [answer, setAnswer] = useState(sample(WORDS));
+  console.info({ answer });
+  function restartGame() {
+    setAnswer(sample(WORDS));
+    setGameStatus("ongoing");
+    setGuessList([]);
+  }
+
   function addToGuessList(guessText) {
     if (guessText === answer) {
       setGameStatus("won");
@@ -43,6 +51,7 @@ function Game() {
         gameStatus={gameStatus}
         guessAmount={guessList.length}
         answer={answer}
+        restartGame={restartGame}
       />
       <PreviousGuesses
         guessList={guessList}
